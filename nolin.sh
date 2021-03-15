@@ -24,7 +24,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://raw.githubusercontent.com/wareocraft/NolinOS/master/Rootfs/Nolin/${archurl}/nolin-rootfs-${archurl}.tar.xz" -O $tarball
+		wget "https://raw.githubusercontent.com/wareocraft/NolinOS/main/Nolin/${archurl}/nolin-rootfs-${archurl}.tar.xz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
@@ -33,8 +33,8 @@ if [ "$first" != 1 ];then
 	proot --link2symlink tar -xJf ${cur}/${tarball}||:
 	cd "$cur"
 fi
-mkdir -p ubuntu-binds
-bin=start-ubuntu.sh
+mkdir -p nolin-binds 
+bin=start-nolin.sh
 echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
